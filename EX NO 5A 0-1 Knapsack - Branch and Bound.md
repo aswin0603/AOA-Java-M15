@@ -44,34 +44,34 @@ maxProfit
 import java.util.*;
 public class StartupShowcaseOptimizer {
     static int N, B;
-    static int[] c, p;          
-    static int best = 0;     
+    static int[] c, p;
+    static int best = 0;
 
     static double bound(int idx, int cw, int cv) {
-         if (cw > B) return 0;
-         double res = cv;
-         int rem = B - cw;
-         for (int i = idx; i < N; i++) {
-           if (c[i] <= rem) {
-             rem -= c[i];
-             res += p[i];
-           } else {
-            res += (double)p[i] * rem / c[i];
-            break;
+        if (cw > B) return 0;
+        double res = cv;
+        int rem = B - cw;
+        for (int i = idx; i < N; i++) {
+            if (c[i] <= rem) {
+                rem -= c[i];
+                res += p[i];
+            } else {
+                res += (double) p[i] * rem / c[i];
+                break;
+            }
         }
-    }
-    return res;
+        return res;
     }
 
     static void dfs(int idx, int cw, int cv) {
-       if (cw > B) return;
-       if (idx == N) {
-          if (cv > best) best = cv;
-          return;
-       }
-      if (bound(idx, cw, cv) <= best) return;
-      dfs(idx + 1, cw + c[idx], cv + p[idx]);
-      dfs(idx + 1, cw, cv);
+        if (cw > B) return;
+        if (idx == N) {
+            if (cv > best) best = cv;
+            return;
+        }
+        if (bound(idx, cw, cv) <= best) return;
+        dfs(idx + 1, cw + c[idx], cv + p[idx]);
+        dfs(idx + 1, cw, cv);
     }
 
     public static void main(String[] args) {
