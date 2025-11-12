@@ -1,6 +1,6 @@
 
 # EX 5A 0/1 Knapsack Problem - Branch&Bound 
-## DATE:08-11-2025
+## DATE: 08-11-2025
 ## AIM:
 To Write a Java program to solve 0/1 Knapsack problem using Branch and Bound Approach.
 You are heading a college entrepreneurship cell that can invest in up to N student‑startups.
